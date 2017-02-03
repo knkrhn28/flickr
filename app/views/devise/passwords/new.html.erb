@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="cover-heading">Recover Password</h1>
+  </div>
+</div>
+
+<hr \>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="inner cover">
+      <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name),
+        html: { method: :post }) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
+        </div>
+
+        <hr \>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Reset password", class: "btn btn-lg btn-default" %>
+          <%= render "devise/shared/links" %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

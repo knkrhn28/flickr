@@ -10,6 +10,7 @@ module SearchHelper
     ]
   end
 
+  # used by search_request template and passed to lib/flickr_api.rb
   def geo_context_options
     [
       ["Not Defined","1"],
@@ -18,5 +19,3 @@ module SearchHelper
     ]
   end
 end
-
-
