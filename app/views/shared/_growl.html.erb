@@ -1,0 +1,12 @@
+<script type="text/javascript">
+  <% flash.each do |type, message| %>
+    <% case type %>
+    <% when 'notice' %>
+      $.growl.notice({ title: '<%= fa_icon("warning") %>', message: '<%= message %>' });
+    <% when 'error' %>
+      $.growl.error({ title: '<%= fa_icon("warning") %>', message: '<%= message %>' });
+    <% when 'alert' %>
+      $.growl.warning({ title: '<%= fa_icon("warning") %>', message: '<%= message %>' });
+    <% end %>
+  <% end %>
+</script>
