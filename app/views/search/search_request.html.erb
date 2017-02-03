@@ -22,11 +22,11 @@
                 <%= f.input :safe_search, collection: safe_search_options, label_html: { class: 'form-control' } %>
               </div>
               <div class="col-lg-4">
-                <%= f.input :min_upload_date, label: "From", as: :date, discard_day: true, input_html: { required: false }, label_html: { class: 'form-control' } %>
+                <%= f.input :min_upload_date, label: "From", as: :date, input_html: { required: false }, label_html: { class: 'form-control' } %>
               </div>
 
               <div class="col-lg-4">
-                <%= f.input :max_upload_date, label: "To", as: :date, discard_day: true, label_html: { class: 'form-control' } %>
+                <%= f.input :max_upload_date, label: "To", as: :date, label_html: { class: 'form-control' } %>
               </div>
             </div>
             <div class="row">

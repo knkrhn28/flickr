@@ -16,7 +16,8 @@ class FlickrAPI
       api_key: api_key,
       format: response_format,
       max_redirects: max_redirects,
-      timeout: timeout
+      timeout: timeout,
+      nojsoncallback: '1' # to get rid of JSONp
     }
   end
 
