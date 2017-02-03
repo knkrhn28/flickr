@@ -22,3 +22,5 @@
 
 # Ignore configuration .yml files
 /config/*.yml
+
+Gemfile.lock
