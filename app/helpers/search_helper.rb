@@ -2,20 +2,19 @@
 
 module SearchHelper
   # used by search_request template and passed to lib/flickr_api.rb
-  def safe_search_options
+  def geo_context_options
     [
-      %w(Safe 1),
-      %w(Moderate 2),
-      %w(Restricted 3)
+      %w(NotDefined 1),
+      %w(Indoors 2),
+      %w(Outdoors 3)
     ]
   end
 
   # used by search_request template and passed to lib/flickr_api.rb
-  def geo_context_options
+  def has_geo_options
     [
-      %w(Not Defined 1),
-      %w(Indoors 2),
-      %w(Outdoors 3)
+      %w(Yes 1),
+      %w(No 0)
     ]
   end
 end

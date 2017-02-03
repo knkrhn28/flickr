@@ -18,14 +18,10 @@
         <div class="collapse" id="collapseExample">
           <div class="well">
             <div class="row">
-              <div class="col-lg-4">
-                <%= f.input :safe_search, collection: safe_search_options, label_html: { class: 'form-control' } %>
+              <div class="col-lg-6">
+                <%= f.input :min_upload_date, label: "From", as: :date, label_html: { class: 'form-control' } %>
               </div>
-              <div class="col-lg-4">
-                <%= f.input :min_upload_date, label: "From", as: :date, input_html: { required: false }, label_html: { class: 'form-control' } %>
-              </div>
-
-              <div class="col-lg-4">
+              <div class="col-lg-6">
                 <%= f.input :max_upload_date, label: "To", as: :date, label_html: { class: 'form-control' } %>
               </div>
             </div>
@@ -34,7 +30,7 @@
                 <%= f.input :geo_context, collection: geo_context_options, label: "Geo Context", label_html: { class: 'form-control' } %>
               </div>
               <div class="col-lg-4">
-                <%= f.input :has_geo, collection: [['Yes', true], ['No', false]], label: "Geo Location", label_html: { class: 'form-control' } %>
+                <%= f.input :has_geo, collection: has_geo_options, label: "Geo Location", label_html: { class: 'form-control' } %>
               </div>
 
               <div class="col-lg-4">
