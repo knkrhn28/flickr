@@ -2,6 +2,11 @@ AllCops:
   Exclude:
     - 'test/test_helper.rb'
     - 'config/initializers/backtrace_silencers.rb'
+    - 'config/initializers/simple_form.rb'
+    - 'config/initializers/simple_form_bootstrap.rb'
+    - 'config/initializers/devise.rb'
+    - 'db/migrate/*.rb'
+    - 'db/schema.rb'
     - 'config/puma.rb'
     - 'bin/**/*'
     - 'tmp/**/*'

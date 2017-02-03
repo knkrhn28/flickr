@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :email, :date_of_birth, presence: true
   validates :email, uniqueness: true
 
-  def is_adult?
-    # todo
+  def adult?
+    ((Date.today - date_of_birth.to_date).to_i) / 365 >= 18
   end
 end
