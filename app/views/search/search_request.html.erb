@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="cover-heading">Seach for Awesome Photos</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="inner cover">
+      <%= simple_form_for :search, { url: search_path, method: :post, validate: true } do |f| %>
+        <%= f.input :text, input_html: { required: true }, label_html: { class: 'form-control' }, label: false %>
+        <%= f.button :submit, "Search", class: "btn btn-lg btn-default" %>
+
+        <button class="btn btn-lg btn-default" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Advanced Search
+        </button>
+        <p></p>
+        <div class="collapse" id="collapseExample">
+          <div class="well">
+            <div class="row">
+              <div class="col-lg-4">
+                <%= f.input :safe_search, collection: safe_search_options, label_html: { class: 'form-control' } %>
+              </div>
+              <div class="col-lg-4">
+                <%= f.input :min_upload_date, label: "From", as: :date, discard_day: true, input_html: { required: false }, label_html: { class: 'form-control' } %>
+              </div>
+
+              <div class="col-lg-4">
+                <%= f.input :max_upload_date, label: "To", as: :date, discard_day: true, label_html: { class: 'form-control' } %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4">
+                <%= f.input :geo_context, collection: geo_context_options, label: "Geo Context", label_html: { class: 'form-control' } %>
+              </div>
+              <div class="col-lg-4">
+                <%= f.input :has_geo, collection: [['Yes', true], ['No', false]], label: "Geo Location", label_html: { class: 'form-control' } %>
+              </div>
+
+              <div class="col-lg-4">
+              <%= f.input :tags, as: :text, label: "Tags", hint: "Comma seperated", label_html: { class: 'form-control' } %>
+              </div>
+            </div>
+            <%= f.button :submit, "Search", class: "btn btn-lg btn-default" %>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
