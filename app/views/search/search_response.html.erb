@@ -11,7 +11,7 @@
 <div class="inner">
   <% @hash_with_url.each do |photo| %>
     <div class="col-lg-4">
-      <a href="<%= generate_big_picture(photo[:picture_url]) %>" data-toggle="lightbox">
+      <a href="<%= generate_big_picture(photo[:picture_url], "h") %>" data-toggle="lightbox">
         <img src="<%= photo[:picture_url] %>">
       </a>
     </div>

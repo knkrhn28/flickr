@@ -18,7 +18,7 @@ module SearchHelper
     ]
   end
 
-  def generate_big_picture(url)
-    url.gsub '_m.jpg', '_h.jpg'
+  def generate_big_picture(url, option)
+    url.gsub '_m.jpg', "_#{option}.jpg"
   end
 end
