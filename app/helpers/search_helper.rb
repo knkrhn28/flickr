@@ -11,10 +11,14 @@ module SearchHelper
   end
 
   # used by search_request template and passed to lib/flickr_api.rb
-  def has_geo_options
+  def geo_options
     [
       %w(Yes 1),
       %w(No 0)
     ]
+  end
+
+  def generate_big_picture(url)
+    url.gsub '_m.jpg', '_h.jpg'
   end
 end

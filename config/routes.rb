@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # a simple get-post route
   get 'search' => 'search#search_request'
-  post 'search' => 'search#search_response'
+  get 'results' => 'search#search_response'
 
   # authentication (devise) routes
   devise_for :users

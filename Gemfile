@@ -25,7 +25,7 @@ gem 'uglifier', '>= 1.3.0'
 # user-experience
 gem 'font-awesome-rails'
 gem 'simple_form'
-gem 'will_paginate', '~> 3.1.0'
+gem 'kaminari'
 
 # api
 gem 'jbuilder', '~> 2.5'

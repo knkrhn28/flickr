@@ -2,40 +2,25 @@
 
 class SearchController < ApplicationController
   before_action :initialize_api
+  before_action :check_params, only: :search_response
+  before_action :sanitize_parameters, only: :search_response, if: :check_params
 
-  def search_request; end # A method to handle search requests.
+  def search_request; end # Handles search requests.
 
-  def search_response # A method to handle search responses.
-    # short-cut for query params
-    q = params["search"]
+  def search_response
+    # Handles search responses. Performs an API call with sanitized parameters.
 
-    # performs an API call with sanitized parameters. Renders :search_request for nil text param.
-    if sanitize_text(q["text"]).present?
-      @sanitized_params = {
-        # text: Text search in title, gallery and some other fields.
-        text: sanitize_text(q["text"]),
-        # tags: A comma-delimited list of tags. Maximum 20.
-        tags: sanitize_tags(q["tags"]),
-        # min_upload_date: 2004-11-29 16:01:26
-        min_upload_date: sanitize_date(
-          q["min_upload_date(3i)"], q["min_upload_date(2i)"], q["min_upload_date(1i)"]
-        ),
-        # max_upload_date: 2004-11-29 16:01:26
-        max_upload_date: sanitize_date(
-          q["max_upload_date(3i)"], q["max_upload_date(2i)"], q["max_upload_date(1i)"]
-        ),
-        # has_geo: 0- false, 1- true
-        has_geo: sanitize_has_geo(q["has_geo"]),
-        # geo_context: 0- not defined, 1- indoors, 2- outdoors
-        geo_context: sanitize_geo_context(q["geo_context"])
-      }
-      response = @flickr_api.search_photos(@sanitized_params).body
-      @photos = JSON.parse(response)
-      check_api_response(@photos["photos"]["total"], @photos["stat"])
-    else
-      flash.now[:error] = "You have to write something to search!"
-      render action: "search_request"
-    end
+    # Search photos from API and parse returned JSON
+    response_json = JSON.parse(@flickr_api.search_photos(sanitize_parameters).body)
+
+    # Check API 'stat' parameter for empty responses or failures
+    check_api_response(response_json['photos']['total'], response_json['stat'])
+
+    # Return a list of photos for url generation
+    photos = response_json['photos']['photo']
+
+    # Generate an array of hashes with URLs and picture titles
+    generate_photo_urls(photos, 'm')
 
   rescue RestClient::ExceptionWithResponse => err
     case err.http_code
@@ -48,13 +33,32 @@ class SearchController < ApplicationController
 
   private
 
+  def generate_photo_urls(photos_hash, size)
+    # generate URLs for horrible Flickr API
+    @hash_with_url = []
+    photos_hash.each do |photo|
+      hash_params = {
+        title: photo['title'],
+        picture_url: "https://farm#{photo['farm']}.staticflickr."\
+        "com/#{photo['server']}/#{photo['id']}_#{photo['secret']}_#{size}.jpg"
+      }
+      @hash_with_url << hash_params
+    end
+    paginate_array(@hash_with_url)
+  end
+
+  def paginate_array(arr)
+    @hash_with_url = Kaminari.paginate_array(arr).page(params[:page]).per(10)
+  end
+
   def check_api_response(total, stat)
+    # Check API response for empty responses or failures
     if total.to_i < 1
-      flash[:notice] = "No results found. Try another request."
-      render action: "search_request"
-    elsif stat == "fail"
-      flash[:error] = "We are having an issue with FlickrAPI. Please try again later."
-      render action: "search_request"
+      flash[:notice] = 'No results found. Try another request.'
+      render action: 'search_request'
+    elsif stat == 'fail'
+      flash[:error] = 'We are having an issue with FlickrAPI. Please try again later.'
+      render action: 'search_request'
     end
   end
 
@@ -68,9 +72,9 @@ class SearchController < ApplicationController
   def sanitize_tags(tags)
     # Sanitize tags and look for comma-separated string, otherwise return an empty string
     if tags.present?
-      (tags =~ /^([a-z]+)(,\s*[a-z]+)*$/i).present? ? tags.tr(' ', '').split(',') : ""
+      (tags =~ /^([a-z]+)(,\s*[a-z]+)*$/i).present? ? tags.tr(' ', '').split(',') : ''
     else
-      ""
+      ''
     end
   end
 
@@ -79,21 +83,45 @@ class SearchController < ApplicationController
     if d.present? && m.present? && y.present?
       "#{d}.#{m}.#{y}".to_date.strftime('%Y-%m-%d %H:%M:%S')
     else
-      ""
+      ''
     end
   end
 
   def sanitize_has_geo(geo_param)
     # Check for unexpected values posted!
-    ["0", "1"].include?(geo_param) ? geo_param : ""
+    %w(0 1).include?(geo_param) ? geo_param : ''
   end
 
   def sanitize_geo_context(geo_context_param)
     # Check for unexpected values posted!
-    ["1", "2", "3"].include?(geo_context_param) ? geo_context_param : ""
+    %w(1 2 3).include?(geo_context_param) ? geo_context_param : ''
+  end
+
+  def sanitize_parameters
+    @sanitized_params = {
+      text: sanitize_text(@q['text']), # Searches in title, description and tags
+      tags: sanitize_tags(@q['tags']), # A comma-delimited list of tags. Maximum 20.
+      min_upload_date: sanitize_date( # 2004-11-29 16:01:26
+        @q['min_upload_date(3i)'], @q['min_upload_date(2i)'], @q['min_upload_date(1i)']
+      ),
+      max_upload_date: sanitize_date( # 2004-11-29 16:01:26
+        @q['max_upload_date(3i)'], @q['max_upload_date(2i)'], @q['max_upload_date(1i)']
+      ),
+      has_geo: sanitize_has_geo(@q['has_geo']), # 0- false, 1- true
+      geo_context: sanitize_geo_context(@q['geo_context']) # 0- not defined, 1- indoors, 2- outdoors
+    }
+  end
+
+  def check_params
+    # Checks if 'text' parameter exists before calling the API
+    @q = params['search']
+    return true if sanitize_text(@q['text']).present?
+    flash[:error] = 'You have to write something to search!'
+    render action: 'search_request'
   end
 
   def initialize_api
+    # Initialize FlickrAPI
     @flickr_api = FlickrAPI.new(ENV['flickr_api_key'])
   end
 end
