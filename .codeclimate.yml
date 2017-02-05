@@ -36,6 +36,7 @@ exclude_paths:
 - test/
 - vendor/
 - app/assets/javascripts/ekko-lightbox.js
-- app/assets/javascripts/jquery.growl.js
-- app/assets/stylesheets/bootstrap.min.css.map
 - app/assets/stylesheets/ekko-lightbox.css
+- app/assets/javascripts/jquery.growl.js
+  app/assets/stylesheets/jquery.growl.css
+- app/assets/stylesheets/bootstrap.min.css.map
