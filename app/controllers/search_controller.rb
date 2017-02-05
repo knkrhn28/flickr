@@ -114,10 +114,9 @@ class SearchController < ApplicationController
 
   def check_params
     # Checks if 'text' parameter exists before calling the API
-    @q = params['search']
-    return true if sanitize_text(@q['text']).present?
-    flash[:error] = 'You have to write something to search!'
-    render action: 'search_request'
+    @q = params['search'] || params['search']
+    return true && sanitize_text(@q['text']) if @q.present? && @q['text'].present?
+    redirect_to root_path, alert: 'You have to write something to search!'
   end
 
   def initialize_api

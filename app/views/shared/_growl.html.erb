@@ -2,11 +2,11 @@
   <% flash.each do |type, message| %>
     <% case type %>
     <% when 'notice' %>
-      $.growl.notice({ title: '<%= fa_icon("info") %>', message: '<%= message %>' });
+      $.growl.notice({ title: '<%= fa_icon("info") %>', message: '<%= message %>', duration: 4500 });
     <% when 'error' %>
-      $.growl.error({ title: '<%= fa_icon("exclamation") %>', message: '<%= message %>' });
+      $.growl.error({ title: '<%= fa_icon("exclamation") %>', message: '<%= message %>', duration: 4500 });
     <% when 'alert' %>
-      $.growl.warning({ title: '<%= fa_icon("warning") %>', message: '<%= message %>' });
+      $.growl.warning({ title: '<%= fa_icon("warning") %>', message: '<%= message %>', duration: 4500 });
     <% end %>
   <% end %>
 </script>

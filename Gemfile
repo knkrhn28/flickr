@@ -42,6 +42,7 @@ gem 'recaptcha', require: 'recaptcha/rails'
 group :development, :test do
   gem 'bullet'
   gem 'byebug', platform: :mri # call byebug
+  gem 'capybara'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.5'
 end

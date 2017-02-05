@@ -4,7 +4,7 @@ RSpec.describe SearchController, type: :controller do
   describe 'GET #search_request' do
     it 'responds successfully with an HTTP 200 status code' do
       get :search_request
-      expect(response).to eq(200)
+      expect(response.status).to eq(200)
     end
 
     it 'renders the search_request template' do
