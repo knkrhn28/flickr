@@ -5,6 +5,7 @@ AllCops:
     - 'config/initializers/simple_form.rb'
     - 'config/initializers/simple_form_bootstrap.rb'
     - 'config/initializers/devise.rb'
+    - 'spec/spec_helper.rb'
     - 'db/migrate/*.rb'
     - 'db/schema.rb'
     - 'config/puma.rb'

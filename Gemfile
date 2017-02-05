@@ -24,8 +24,8 @@ gem 'uglifier', '>= 1.3.0'
 
 # user-experience
 gem 'font-awesome-rails'
-gem 'simple_form'
 gem 'kaminari'
+gem 'simple_form'
 
 # api
 gem 'jbuilder', '~> 2.5'
@@ -42,6 +42,8 @@ gem 'recaptcha', require: 'recaptcha/rails'
 group :development, :test do
   gem 'bullet'
   gem 'byebug', platform: :mri # call byebug
+  gem 'rails-controller-testing'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
