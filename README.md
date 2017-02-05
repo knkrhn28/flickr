@@ -1,8 +1,8 @@
-# flickr-digger [![Build Status](https://secure.travis-ci.org/msdundar/flickr.svg?branch=master)](http://travis-ci.org/msdundar/flickr) [![Code Climate](https://img.shields.io/codeclimate/github/msdundar/flickr.svg)](https://codeclimate.com/github/msdundar/flickr)
+# flickr [![Build Status](https://secure.travis-ci.org/msdundar/flickr.svg?branch=master)](http://travis-ci.org/msdundar/flickr) [![Code Climate](https://img.shields.io/codeclimate/github/msdundar/flickr.svg)](https://codeclimate.com/github/msdundar/flickr)
 
-**flickr-digger** is a Rails 5 application which communicates with Flickr API and returns photos that matches with the given parameters.
+**flickr (flickr-digger)** is a Rails 5 application which communicates with Flickr API and returns photos that matches with the given parameters.
 
-**Works fine with `Ruby 2.2.3` and other versions are not tested yet.
+* Works fine with `Ruby 2.2.3` and other versions are not tested yet.
 
 ## Installation
 
@@ -14,15 +14,19 @@
 
 ```
 flickr_api_key: YOUR_KEY
-RECAPTCHA_SITE_KEY: YOUR_KEY
-RECAPTCHA_SECRET_KEY: YOUR_KEY
 ```
 
-## Tests
+or add your flickr_api_key as environment variable ENV['flickr_api_key'].
+
+## Tests and Status
+
+Currently, all tests are passing with awesome 'green'. Run bundle exec rspec to run RSpec tests.
 
 ```ruby
 bundle exec rspec
 ```
+
+Code quality is checked with [Rubocop](https://github.com/bbatsov/rubocop) [![Build Status](https://secure.travis-ci.org/msdundar/flickr.svg?branch=master)](http://travis-ci.org/msdundar/flickr) and [![Code Climate](https://img.shields.io/codeclimate/github/msdundar/flickr.svg)](https://codeclimate.com/github/msdundar/flickr)
 
 ## Contributing
 
