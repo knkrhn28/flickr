@@ -14,7 +14,7 @@ gem 'mysql2'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.1'
 gem 'redis', '~> 3.0'
-gem 'sqlite3'
+# gem 'sqlite3'
 
 # assets
 gem 'coffee-rails', '~> 4.2'
