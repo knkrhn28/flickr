@@ -11,7 +11,6 @@ end
 
 # core
 gem 'mysql2'
-gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.1'
 gem 'redis', '~> 3.0'
