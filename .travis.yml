@@ -1,5 +1,9 @@
 language: "ruby"
 script: "bundle exec rake --trace"
+
+before_install:
+  - mysql -e 'CREATE DATABASE flickr_test;'
+
 rvm:
   - 2.2.3
 
