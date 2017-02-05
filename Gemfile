@@ -59,7 +59,10 @@ group :development do
   gem 'web-console', '>= 3.3.0' # Use <%= console %> anywhere in the code.
 end
 
-gem 'rails_12factor', group: :production
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
 # timezone
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
