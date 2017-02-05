@@ -1,6 +1,8 @@
 # flickr-digger [![Build Status](https://secure.travis-ci.org/msdundar/flickr.svg?branch=master)](http://travis-ci.org/msdundar/flickr) [![Code Climate](https://img.shields.io/codeclimate/github/msdundar/flickr.svg)](https://codeclimate.com/github/msdundar/flickr)
 
-**flickr-digger** RoR application communicates with Flickr API and returns photos that matches with the given parameters.
+**flickr-digger** is a Rails 5 application which communicates with Flickr API and returns photos that matches with the given parameters.
+
+**Works fine with `Ruby 2.2.3` and other versions are not tested yet.
 
 ## Installation
 

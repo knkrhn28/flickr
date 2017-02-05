@@ -2,6 +2,8 @@
 
 source 'https://rubygems.org'
 
+ruby "2.2.3"
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
@@ -56,6 +58,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0' # Use <%= console %> anywhere in the code.
 end
+
+gem 'rails_12factor', group: :production
 
 # timezone
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
