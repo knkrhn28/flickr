@@ -7,20 +7,23 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  username: USERNAME
-  password: PASSWORD
-  host: HOST
-  socket: /var/run/mysqld/mysqld.sock
+  host: localhost
   pool: 5
 
 development:
   <<: *default
   database: flickr_dev
+  username: root
+  password: root
 
 test:
   <<: *default
   database: flickr_test
+  username: travis
+  password: 
 
 production:
   <<: *default
   database: flickr_pro
+  username: 
+  password: 
