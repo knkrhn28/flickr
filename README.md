@@ -16,7 +16,7 @@
 flickr_api_key: YOUR_KEY
 ```
 
-or add your flickr_api_key as environment variable ENV['flickr_api_key'].
+or add your `flickr_api_key` as environment variable `ENV['flickr_api_key']`.
 
 ## Tests and Status
 
@@ -26,7 +26,9 @@ Currently, all tests are passing with awesome 'green'. Run bundle exec rspec to 
 bundle exec rspec
 ```
 
-Code quality is checked with [Rubocop](https://github.com/bbatsov/rubocop) [![Build Status](https://secure.travis-ci.org/msdundar/flickr.svg?branch=master)](http://travis-ci.org/msdundar/flickr) and [![Code Climate](https://img.shields.io/codeclimate/github/msdundar/flickr.svg)](https://codeclimate.com/github/msdundar/flickr)
+Code quality is checked with [Rubocop](https://github.com/bbatsov/rubocop), [TravisCI](https://travis-ci.org/) and [CodeClimate](https://codeclimate.com/).
+
+[![Build Status](https://secure.travis-ci.org/msdundar/flickr.svg?branch=master)](http://travis-ci.org/msdundar/flickr) [![Code Climate](https://img.shields.io/codeclimate/github/msdundar/flickr.svg)](https://codeclimate.com/github/msdundar/flickr)
 
 ## Contributing
 
