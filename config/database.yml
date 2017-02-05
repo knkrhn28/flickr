@@ -5,25 +5,24 @@
 #   gem 'sqlite3'
 
 default: &default
-  adapter: mysql2
-  encoding: utf8
-  host: localhost
+  adapter: postgresql
+  encoding: unicode
   pool: 5
 
 development:
   <<: *default
   database: flickr_dev
-  username: root
-  password: root
+  username:
+  password:
 
 test:
   <<: *default
   database: flickr_test
-  username: travis
+  username: postgres
   password: 
 
 production:
   <<: *default
-  database: flickr_pro
+  database:
   username: 
   password: 
