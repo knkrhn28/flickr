@@ -1,24 +1,38 @@
-# README
+# flickr-digger [![Build Status](https://secure.travis-ci.org/msdundar/flickr.svg?branch=master)](http://travis-ci.org/msdundar/flickr) [![Code Climate](https://img.shields.io/codeclimate/github/msdundar/flickr.svg)](https://codeclimate.com/github/msdundar/flickr)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**flickr-digger** RoR application communicates with Flickr API and returns photos that matches with the given parameters.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+1. Clone the repository.
+2. `bundle install`
+3. `rake db:setup`
+4. edit `config/database.yml` and add your secrets.
+5. edit `config/application.yml` and add the following keys.
 
-* System dependencies
+```
+flickr_api_key: YOUR_KEY
+RECAPTCHA_SITE_KEY: YOUR_KEY
+RECAPTCHA_SECRET_KEY: YOUR_KEY
+```
 
-* Configuration
+## Tests
 
-* Database creation
+```ruby
+bundle exec rspec
+```
 
-* Database initialization
+## Contributing
 
-* How to run the test suite
+1. `fork` the repo ( https://github.com/msdundar/mernis/fork )
+2. Create a branch (git checkout -b cool-feature)
+3. Commit the changes (git commit -am 'My cool features')
+4. Push the branch (git push origin cool-feature)
+5. Make a pull request
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Questions
 
-* ...
+```
+msdundars@gmail.com
+```
