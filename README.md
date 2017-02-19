@@ -32,7 +32,7 @@ Code quality is checked with [Rubocop](https://github.com/bbatsov/rubocop), [Tra
 
 ## Contributing
 
-1. `fork` the repo ( https://github.com/msdundar/mernis/fork )
+1. `fork` the repo ( https://github.com/msdundar/flickr/fork )
 2. Create a branch (git checkout -b cool-feature)
 3. Commit the changes (git commit -am 'My cool features')
 4. Push the branch (git push origin cool-feature)
