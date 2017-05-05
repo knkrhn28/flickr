@@ -1,4 +1,4 @@
-# flickr [![Build Status](https://secure.travis-ci.org/msdundar/flickr.svg?branch=master)](http://travis-ci.org/msdundar/flickr) [![Code Climate](https://img.shields.io/codeclimate/github/msdundar/flickr.svg)](https://codeclimate.com/github/msdundar/flickr)
+# flickr [![Build Status](https://secure.travis-ci.org/msdundar/flickr.svg?branch=master)](http://travis-ci.org/msdundar/flickr) [![Code Climate](https://img.shields.io/codeclimate/github/msdundar/flickr.svg)](https://codeclimate.com/github/msdundar/flickr) [![CircleCI](https://circleci.com/gh/msdundar/flickr.svg?style=svg)](https://circleci.com/gh/msdundar/flickr)
 
 **flickr (flickr-digger)** is a Rails 5 application which communicates with Flickr API and returns photos that matches with the given parameters.
 
@@ -28,7 +28,7 @@ bundle exec rspec
 
 Code quality is checked with [Rubocop](https://github.com/bbatsov/rubocop), [TravisCI](https://travis-ci.org/) and [CodeClimate](https://codeclimate.com/).
 
-[![Build Status](https://secure.travis-ci.org/msdundar/flickr.svg?branch=master)](http://travis-ci.org/msdundar/flickr) [![Code Climate](https://img.shields.io/codeclimate/github/msdundar/flickr.svg)](https://codeclimate.com/github/msdundar/flickr)
+[![Build Status](https://secure.travis-ci.org/msdundar/flickr.svg?branch=master)](http://travis-ci.org/msdundar/flickr) [![Code Climate](https://img.shields.io/codeclimate/github/msdundar/flickr.svg)](https://codeclimate.com/github/msdundar/flickr) [![CircleCI](https://circleci.com/gh/msdundar/flickr.svg?style=svg)](https://circleci.com/gh/msdundar/flickr)
 
 ## Contributing
 
